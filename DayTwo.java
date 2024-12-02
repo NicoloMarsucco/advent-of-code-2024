@@ -62,10 +62,6 @@ public class DayTwo {
                         }
                     }
                 }
-
-                
-
-
                 
             }
 
@@ -113,8 +109,4 @@ public class DayTwo {
         }
         return isThisValidRow;
     }
-
-    
-
-    
 }
