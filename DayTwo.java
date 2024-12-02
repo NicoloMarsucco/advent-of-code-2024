@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,6 +20,10 @@ public class DayTwo {
         return this.safeReportsCount;
     }
 
+    public int getSecondExerciseSolution() {
+        return this.safeReportsCountAfterDampener + this.safeReportsCount;
+    }
+
     private int solvePuzzles() {
         
         try (Scanner scanner = new Scanner(Paths.get(this.filename))) {
@@ -31,10 +36,31 @@ public class DayTwo {
                 //Convert to int array
                 int[] partsAsInt = Arrays.asList(partsAsStrings).stream().mapToInt(Integer::parseInt).toArray();
                
+                //First puzzle
                 boolean isRowSafe = checkIfSafe(partsAsInt);
-
                 if (isRowSafe) {
                     this.safeReportsCount++;
+                }
+
+                // Second puzzle
+                if (!isRowSafe) {
+                    for (int numberToRemove = 0; numberToRemove < partsAsInt.length; numberToRemove++) {
+                        // Create a new array excluding the 'numberToRemove' index
+                        int[] newArrayOfNumbers = new int[partsAsInt.length - 1];
+                        int k = 0;
+                
+                        for (int i = 0; i < partsAsInt.length; i++) {
+                            if (i != numberToRemove) {
+                                newArrayOfNumbers[k++] = partsAsInt[i];
+                            }
+                        }
+                
+                        // Check if the newly created array is safe
+                        if (checkIfSafe(newArrayOfNumbers)) {
+                            this.safeReportsCountAfterDampener++;
+                            break;
+                        }
+                    }
                 }
 
                 
@@ -87,6 +113,8 @@ public class DayTwo {
         }
         return isThisValidRow;
     }
+
+    
 
     
 }
