@@ -10,7 +10,7 @@ public class DayOne {
     private int similarityScore = 0;
 
     public DayOne(String filename) {
-        readDay1Text(filename);
+        readDayOnedata(filename);
     }
 
     public int getFirstExerciseSolution() {
@@ -24,21 +24,21 @@ public class DayOne {
         return this.similarityScore;
     }
 
-    private void readDay1Text(String filename) {
+    private void readDayOnedata(String filename) {
         try (Scanner scanner = new Scanner(Paths.get(filename))) {
          
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split("   ");
 
-                // Put into arrayList for the first puzzle
-                int firstLocationId = Integer.valueOf(parts[0]);
-                int secondLocationId = Integer.valueOf(parts[1]);
-                this.firstColumn.add(firstLocationId);
-                this.secondColumn.add(secondLocationId);
+                // For the first puzzle, we store the columns into 
+                // an array list which we then sort
+                int firstColumnNumber = Integer.valueOf(parts[0]);
+                int secondColumnNumber = Integer.valueOf(parts[1]);
+                this.firstColumn.add(firstColumnNumber);
+                this.secondColumn.add(secondColumnNumber);
 
-                //Put into hashmap for the second puzzle
-                
+                //For the second puzzle, we store the the values into an hashmap              
                 // First, we check if the hash map has keys for firts and second location id
                 if (! this.frequencyCounts.containsKey(firstLocationId)) {
                     this.frequencyCounts.put(firstLocationId,new ArrayList<Integer>() {{
