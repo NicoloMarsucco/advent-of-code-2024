@@ -5,7 +5,7 @@ import java.lang.Math;
 public class DayOne {
     private List<Integer> firstColumn = new ArrayList<Integer>();
     private List<Integer> secondColumn = new ArrayList<Integer>();
-    private Map<Integer,List<Integer>> frequencyCounts = new HashMap<>();
+    private Map<Integer,Integer> secondColumnCounts = new HashMap<>();
     private int sumOfDistances = 0;
     private int similarityScore = 0;
 
@@ -40,31 +40,11 @@ public class DayOne {
 
                 //For the second puzzle, we store the the values into an hashmap              
                 // First, we check if the hash map has keys for firts and second location id
-                if (! this.frequencyCounts.containsKey(firstLocationId)) {
-                    this.frequencyCounts.put(firstLocationId,new ArrayList<Integer>() {{
-                        add(0);
-                        add(0);
-                    }});
+                if (this.secondColumnCounts.containsKey(secondColumnNumber)) {
+                    this.secondColumnCounts.put(secondColumnNumber, this.secondColumnCounts.get(secondColumnNumber) + 1);       //Increase count by 1
+                } else {
+                    this.secondColumnCounts.put(secondColumnNumber,1);
                 }
-
-                if (! this.frequencyCounts.containsKey(secondLocationId)) {
-                    this.frequencyCounts.put(secondLocationId,new ArrayList<Integer>() {{
-                        add(0);
-                        add(0);
-                    }});
-                }
-
-                // Then, add frequencies
-                //First id
-                List<Integer> frequenciesFirstId = this.frequencyCounts.get(firstLocationId);
-                frequenciesFirstId.set(0,frequenciesFirstId.get(0)+1);
-                this.frequencyCounts.put(firstLocationId,frequenciesFirstId);
-
-                //Second id
-                List<Integer> frequenciesSecondId = this.frequencyCounts.get(secondLocationId);
-                frequenciesSecondId.set(1,frequenciesSecondId.get(1)+1);
-                this.frequencyCounts.put(secondLocationId,frequenciesSecondId);
-
             }
 
         } catch (Exception e) {
@@ -85,9 +65,10 @@ public class DayOne {
     }
 
     private void calculateSimilarityScore() {
-        for (Integer key : this.frequencyCounts.keySet()) {
-            List<Integer> frequenciesOfKey = this.frequencyCounts.get(key);
-            this.similarityScore += key*frequenciesOfKey.get(0)*frequenciesOfKey.get(1);
+        for (Integer firstColumnNumber : this.firstColumn) {
+            if (this.secondColumnCounts.containsKey(firstColumnNumber)) {
+                this.similarityScore += firstColumnNumber*this.secondColumnCounts.get(firstColumnNumber);
+            }
         }
     }
 }
