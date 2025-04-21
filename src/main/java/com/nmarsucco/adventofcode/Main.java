@@ -3,11 +3,12 @@ package src.main.java.com.nmarsucco.adventofcode;
 import src.main.java.com.nmarsucco.adventofcode.days.Day1;
 import src.main.java.com.nmarsucco.adventofcode.days.Day2;
 import src.main.java.com.nmarsucco.adventofcode.days.Day3;
+import src.main.java.com.nmarsucco.adventofcode.days.Day4;
 
 public class Main {
 
     public static void main(String[] args) {
-        Day[] solvedDays = { new Day1(), new Day2(), new Day3() };
+        Day[] solvedDays = { new Day1(), new Day2(), new Day3(), new Day4() };
         for (Day day : solvedDays) {
             System.out.println("Day " + day.getDayNumber() + ":");
 
