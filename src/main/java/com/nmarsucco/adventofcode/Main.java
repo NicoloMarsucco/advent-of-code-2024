@@ -1,11 +1,12 @@
 package src.main.java.com.nmarsucco.adventofcode;
 
 import src.main.java.com.nmarsucco.adventofcode.days.Day1;
+import src.main.java.com.nmarsucco.adventofcode.days.Day2;
 
 public class Main {
 
     public static void main(String[] args) {
-        Day[] solvedDays = { new Day1() };
+        Day[] solvedDays = { new Day1(), new Day2() };
         for (Day day : solvedDays) {
             System.out.println("Day " + day.getDayNumber() + ":");
 
