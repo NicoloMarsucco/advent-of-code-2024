@@ -1,5 +1,9 @@
 package src.main.java.com.nmarsucco.adventofcode;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
 public abstract class Day {
 
     private final int dayNumber;
@@ -25,6 +29,10 @@ public abstract class Day {
 
     public int getDayNumber() {
         return this.dayNumber;
+    }
+
+    protected BufferedReader getNewBufferedReader() throws FileNotFoundException {
+        return new BufferedReader(new FileReader(getInputPath()));
     }
 
 }
