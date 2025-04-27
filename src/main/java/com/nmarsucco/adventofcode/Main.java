@@ -6,11 +6,12 @@ import src.main.java.com.nmarsucco.adventofcode.days.Day3;
 import src.main.java.com.nmarsucco.adventofcode.days.Day4;
 import src.main.java.com.nmarsucco.adventofcode.days.Day5;
 import src.main.java.com.nmarsucco.adventofcode.days.Day6;
+import src.main.java.com.nmarsucco.adventofcode.days.Day7;
 
 public class Main {
 
     public static void main(String[] args) {
-        Day[] solvedDays = { new Day1(), new Day2(), new Day3(), new Day4(), new Day5(), new Day6() };
+        Day[] solvedDays = { new Day1(), new Day2(), new Day3(), new Day4(), new Day5(), new Day6(), new Day7() };
         for (Day day : solvedDays) {
             System.out.println("Day " + day.getDayNumber() + ":");
 
