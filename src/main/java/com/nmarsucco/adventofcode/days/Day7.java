@@ -60,12 +60,12 @@ public class Day7 extends Day {
     }
 
     private static boolean dfsSearchPart2(long[] array, int i, long cumSum) {
+        if (cumSum > array[0]) {
+            return false;
+        }
         long thirdOperation = Long.parseLong(String.valueOf(cumSum) + String.valueOf(array[i]));
         if (i == array.length - 1) {
             return (cumSum + array[i] == array[0]) || (cumSum * array[i] == array[0]) || (thirdOperation == array[0]);
-        }
-        if (cumSum > array[0]) {
-            return false;
         }
         return dfsSearchPart2(array, i + 1, cumSum + array[i]) || dfsSearchPart2(array, i + 1, cumSum * array[i])
                 || dfsSearchPart2(array, i + 1, thirdOperation);
