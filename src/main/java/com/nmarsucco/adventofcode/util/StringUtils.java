@@ -36,6 +36,17 @@ public class StringUtils {
         return input;
     }
 
+    public static String getInputLine(String inputPath) {
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
+            line = br.readLine();
+        } catch (Exception e) {
+            line = "error";
+            System.out.println("Error: " + e.getMessage());
+        }
+        return line;
+    }
+
     public static void printMatrix(char[][] matrix) {
         for (char[] row : matrix) {
             for (char c : row) {
