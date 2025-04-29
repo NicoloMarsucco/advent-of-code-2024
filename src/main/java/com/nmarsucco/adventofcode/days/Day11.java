@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import src.main.java.com.nmarsucco.adventofcode.Day;
-import src.main.java.com.nmarsucco.adventofcode.common.StoneLine;
 
 public class Day11 extends Day {
 
