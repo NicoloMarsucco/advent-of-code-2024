@@ -1,9 +1,7 @@
-package src.test.java.com.nmarsucco.adventofcode.days;
+package com.nmarsucco.adventofcode.days;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-
-import src.main.java.com.nmarsucco.adventofcode.days.Day3;
 
 public class Day3Test {
     Day3 day3 = new Day3(true);

@@ -1,4 +1,4 @@
-package src.main.java.com.nmarsucco.adventofcode.util;
+package com.nmarsucco.adventofcode.util;
 
 import java.util.Objects;
 

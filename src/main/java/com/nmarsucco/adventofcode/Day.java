@@ -1,4 +1,4 @@
-package src.main.java.com.nmarsucco.adventofcode;
+package com.nmarsucco.adventofcode;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

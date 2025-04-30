@@ -1,12 +1,12 @@
-package src.main.java.com.nmarsucco.adventofcode.days;
+package com.nmarsucco.adventofcode.days;
 
-import src.main.java.com.nmarsucco.adventofcode.util.Position;
-import src.main.java.com.nmarsucco.adventofcode.util.StringUtils;
+import com.nmarsucco.adventofcode.util.Position;
+import com.nmarsucco.adventofcode.util.StringUtils;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import src.main.java.com.nmarsucco.adventofcode.Day;
+import com.nmarsucco.adventofcode.Day;
 
 public class Day10 extends Day {
 

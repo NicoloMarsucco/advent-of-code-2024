@@ -1,17 +1,17 @@
-package src.main.java.com.nmarsucco.adventofcode;
+package com.nmarsucco.adventofcode;
 
-import src.main.java.com.nmarsucco.adventofcode.days.Day1;
-import src.main.java.com.nmarsucco.adventofcode.days.Day2;
-import src.main.java.com.nmarsucco.adventofcode.days.Day3;
-import src.main.java.com.nmarsucco.adventofcode.days.Day4;
-import src.main.java.com.nmarsucco.adventofcode.days.Day5;
-import src.main.java.com.nmarsucco.adventofcode.days.Day6;
-import src.main.java.com.nmarsucco.adventofcode.days.Day7;
-import src.main.java.com.nmarsucco.adventofcode.days.Day8;
-import src.main.java.com.nmarsucco.adventofcode.days.Day9;
-import src.main.java.com.nmarsucco.adventofcode.days.Day10;
-import src.main.java.com.nmarsucco.adventofcode.days.Day11;
-import src.main.java.com.nmarsucco.adventofcode.days.Day12;
+import com.nmarsucco.adventofcode.days.Day1;
+import com.nmarsucco.adventofcode.days.Day2;
+import com.nmarsucco.adventofcode.days.Day3;
+import com.nmarsucco.adventofcode.days.Day4;
+import com.nmarsucco.adventofcode.days.Day5;
+import com.nmarsucco.adventofcode.days.Day6;
+import com.nmarsucco.adventofcode.days.Day7;
+import com.nmarsucco.adventofcode.days.Day8;
+import com.nmarsucco.adventofcode.days.Day9;
+import com.nmarsucco.adventofcode.days.Day10;
+import com.nmarsucco.adventofcode.days.Day11;
+import com.nmarsucco.adventofcode.days.Day12;
 
 public class Main {
 

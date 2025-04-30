@@ -1,4 +1,4 @@
-package src.main.java.com.nmarsucco.adventofcode.days;
+package com.nmarsucco.adventofcode.days;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import src.main.java.com.nmarsucco.adventofcode.Day;
-import src.main.java.com.nmarsucco.adventofcode.util.Position;
-import src.main.java.com.nmarsucco.adventofcode.util.StringUtils;
+import com.nmarsucco.adventofcode.Day;
+import com.nmarsucco.adventofcode.util.Position;
+import com.nmarsucco.adventofcode.util.StringUtils;
 
 public class Day8 extends Day {
 

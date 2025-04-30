@@ -1,12 +1,12 @@
-package src.main.java.com.nmarsucco.adventofcode.days;
+package com.nmarsucco.adventofcode.days;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
 
-import src.main.java.com.nmarsucco.adventofcode.Day;
-import src.main.java.com.nmarsucco.adventofcode.util.WholeFile;
+import com.nmarsucco.adventofcode.Day;
+import com.nmarsucco.adventofcode.util.WholeFile;
 
 public class Day9 extends Day {
 

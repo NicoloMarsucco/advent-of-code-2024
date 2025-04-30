@@ -1,7 +1,7 @@
-package src.main.java.com.nmarsucco.adventofcode.days;
+package com.nmarsucco.adventofcode.days;
 
-import src.main.java.com.nmarsucco.adventofcode.Day;
-import src.main.java.com.nmarsucco.adventofcode.util.StringUtils;
+import com.nmarsucco.adventofcode.Day;
+import com.nmarsucco.adventofcode.util.StringUtils;
 
 public class Day12 extends Day {
 

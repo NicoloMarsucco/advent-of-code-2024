@@ -1,11 +1,11 @@
-package src.main.java.com.nmarsucco.adventofcode.days;
+package com.nmarsucco.adventofcode.days;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import src.main.java.com.nmarsucco.adventofcode.Day;
+import com.nmarsucco.adventofcode.Day;
 
 public class Day3 extends Day {
 

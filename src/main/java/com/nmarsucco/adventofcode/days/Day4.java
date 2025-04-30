@@ -1,4 +1,4 @@
-package src.main.java.com.nmarsucco.adventofcode.days;
+package com.nmarsucco.adventofcode.days;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import src.main.java.com.nmarsucco.adventofcode.Day;
+import com.nmarsucco.adventofcode.Day;
 
 public class Day4 extends Day {
 
