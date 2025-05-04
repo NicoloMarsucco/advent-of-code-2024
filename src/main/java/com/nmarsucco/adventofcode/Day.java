@@ -35,4 +35,8 @@ public abstract class Day {
         return new BufferedReader(new FileReader(getInputPath()));
     }
 
+    protected boolean isTestingMode() {
+        return isTestingMode;
+    }
+
 }
