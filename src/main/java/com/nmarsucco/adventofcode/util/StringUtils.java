@@ -11,7 +11,7 @@ public class StringUtils {
         return transformListOfStringsToCharMatrix(getInputAsListOfStrings(inputPath));
     }
 
-    private static char[][] transformListOfStringsToCharMatrix(List<String> listOfStrings) {
+    public static char[][] transformListOfStringsToCharMatrix(List<String> listOfStrings) {
         int numberOfRows = listOfStrings.size();
         int numberOfColumns = listOfStrings.get(0).length();
         char[][] matrix = new char[numberOfRows][numberOfColumns];
