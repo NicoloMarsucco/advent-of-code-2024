@@ -11,4 +11,9 @@ public class Day16Test {
     void testPart1() {
         assertEquals("11048", day16.solvePart1().toString());
     }
+
+    @Test
+    void testPart2() {
+        assertEquals("64", day16.solvePart2().toString());
+    }
 }

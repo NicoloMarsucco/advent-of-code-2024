@@ -1,11 +1,20 @@
 package com.nmarsucco.adventofcode.days;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
 
 import com.nmarsucco.adventofcode.Day;
 import com.nmarsucco.adventofcode.util.Node;
+import com.nmarsucco.adventofcode.util.DijkstraNode;
 import com.nmarsucco.adventofcode.util.Direction;
 import com.nmarsucco.adventofcode.util.Position;
 import com.nmarsucco.adventofcode.util.StringUtils;
@@ -123,18 +132,97 @@ public class Day16 extends Day {
     @Override
     public Object solvePart2() {
         char[][] grid = StringUtils.getInputAsCharMatrix(getInputPath());
-        Node endNode = solveMaze(grid);
+        int rows = grid.length;
+        int cols = grid[0].length;
 
-        // Priority queue with lowest gscore
-        PriorityQueue<Node> pq = new PriorityQueue<>((node1, node2) -> Double.compare(node1.gScore, node2.gScore));
+        int[][][] distance = new int[rows][cols][4]; // 4 directions
+        for (int[][] row : distance)
+            for (int[] cell : row)
+                Arrays.fill(cell, Integer.MAX_VALUE);
 
-        pq.add(endNode);
+        PriorityQueue<DijkstraNode> pq = new PriorityQueue<>(Comparator.comparingInt(n -> n.dist));
+        Map<DijkstraNode, List<DijkstraNode>> predecessors = new HashMap<>();
 
-        while (true) {
+        int startRow = grid.length - 2;
+        int startColumn = 1;
+        distance[startRow][startColumn][Direction.EAST.ordinal()] = 0;
+
+        pq.offer(new DijkstraNode(new Position(startRow, startColumn), Direction.EAST, 0));
+
+        while (!pq.isEmpty()) {
+            DijkstraNode curr = pq.poll();
+            int r = curr.position.row;
+            int c = curr.position.col;
+            int d = curr.direction.ordinal();
+
+            if (curr.dist > distance[r][c][d]) {
+                continue;
+            }
+
+            Direction[] nextPossibleDirections = { curr.direction, curr.direction.rotateClockwise(),
+                    curr.direction.rotateCounterClockwise() };
+
+            for (Direction nextDir : nextPossibleDirections) {
+                Position newPosition = curr.position.add(nextDir.getDelta());
+
+                // Wall check
+                if (grid[newPosition.row][newPosition.col] == '#') {
+                    continue;
+                }
+
+                int movementCost = (nextDir == curr.direction) ? 1 : 1001;
+                int newDist = curr.dist + movementCost;
+                int nextDirOrdinal = nextDir.ordinal();
+                DijkstraNode nextNode = new DijkstraNode(newPosition, nextDir, newDist);
+
+                if (newDist < distance[newPosition.row][newPosition.col][nextDirOrdinal]) {
+                    distance[newPosition.row][newPosition.col][nextDirOrdinal] = newDist;
+                    pq.offer(nextNode);
+                    predecessors.put(nextNode, new ArrayList<>(Collections.singletonList(curr)));
+                } else if (newDist == distance[newPosition.row][newPosition.col][nextDirOrdinal]) {
+                    predecessors.computeIfAbsent(nextNode, k -> new ArrayList<>()).add(curr);
+                }
+            }
 
         }
 
-        return 0;
+        Set<DijkstraNode> visited = new HashSet<>();
+        Set<Position> tiles = new HashSet<>();
+        int endRow = 1;
+        int endColumn = grid[0].length - 2;
+
+        int endDistEast = distance[endRow][endColumn][Direction.EAST.ordinal()];
+        int endDistNorth = distance[endRow][endColumn][Direction.NORTH.ordinal()];
+        List<Direction> endDirections = new ArrayList<>();
+
+        if (endDistNorth <= endDistEast) {
+            endDirections.add(Direction.NORTH);
+        }
+        if (endDistEast <= endDistNorth) {
+            endDirections.add(Direction.EAST);
+        }
+
+        for (Direction dir : endDirections) {
+            dfs(predecessors, visited, new DijkstraNode(new Position(endRow, endColumn), dir, 0), tiles);
+        }
+
+        for (Position pos : tiles) {
+            grid[pos.row][pos.col] = 'O';
+        }
+
+        return tiles.size() + 1;
+    }
+
+    private void dfs(Map<DijkstraNode, List<DijkstraNode>> map, Set<DijkstraNode> visited, DijkstraNode node,
+            Set<Position> tiles) {
+        if (!visited.add(node) || !map.containsKey(node)) {
+            return;
+        }
+        tiles.add(node.position);
+
+        for (DijkstraNode parent : map.get(node)) {
+            dfs(map, visited, parent, tiles);
+        }
     }
 
 }

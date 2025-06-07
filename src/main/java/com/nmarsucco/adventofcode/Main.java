@@ -1,21 +1,6 @@
 package com.nmarsucco.adventofcode;
 
-import com.nmarsucco.adventofcode.days.Day1;
-import com.nmarsucco.adventofcode.days.Day2;
-import com.nmarsucco.adventofcode.days.Day3;
-import com.nmarsucco.adventofcode.days.Day4;
-import com.nmarsucco.adventofcode.days.Day5;
-import com.nmarsucco.adventofcode.days.Day6;
-import com.nmarsucco.adventofcode.days.Day7;
-import com.nmarsucco.adventofcode.days.Day8;
-import com.nmarsucco.adventofcode.days.Day9;
-import com.nmarsucco.adventofcode.days.Day10;
-import com.nmarsucco.adventofcode.days.Day11;
-import com.nmarsucco.adventofcode.days.Day12;
-import com.nmarsucco.adventofcode.days.Day13;
-import com.nmarsucco.adventofcode.days.Day14;
-import com.nmarsucco.adventofcode.days.Day15;
-import com.nmarsucco.adventofcode.days.Day16;
+import com.nmarsucco.adventofcode.days.*;
 
 public class Main {
 
